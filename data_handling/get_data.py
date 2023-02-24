@@ -1,11 +1,12 @@
+"""Class to download input data"""
 import gzip
 import logging
 import shutil
-
 import requests
 
 
 class InputDownloader:
+    """Download handler to download and unzip the input data"""
     def __init__(self, base_url: str, suffix_url: str, suffix_file_name: str):
         self.logger = logging.getLogger(__name__)
         self.base_url = base_url

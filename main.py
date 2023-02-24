@@ -1,12 +1,9 @@
-import logging
-
 from config.config import base_url, years
 from data_handling.get_data import InputDownloader
 
 
 def main():
-    logging.basicConfig(filename='myapp.log', level=logging.INFO)
-    logging.info('Started')
+    print('Starting main')
     input_downloaders = [InputDownloader(
         base_url=base_url,
         suffix_url=year,
