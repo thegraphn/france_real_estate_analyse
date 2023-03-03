@@ -26,8 +26,8 @@ class ModelStatistics:
         # convert years to int
         list_years = [int(year) for year in list_years]
         # compute ration square meter price and create a new column
-        self.data_frame["price_per_square_meter"] = self.data_frame[self.price_column] / self.data_frame[
-            self.building_surface_column]
+        self.data_frame["price_per_square_meter"] =  self.data_frame[
+            self.building_surface_column]/self.data_frame[self.price_column]
 
 
         for year in list_years:
