@@ -49,8 +49,13 @@ def main():
     for stat_model in tqdm(stat_models, total=len(stat_models), desc="Computing statistics"):
         stat_model.compute_mean_value_square_meter_per_year()
         stat_model.compute_value_evolution()
-        stat_model.report.to_csv(f"./data/stat_model{stat_model.postal_code}.csv", index=False)
+    #Merge the stat df
+    list_df = [stat_model.report for stat_model in stat_models]
+    merged_stat_df = pd.concat(list_df)
+    merged_stat_df.to_csv("./data/merged_stat_df.csv", index=False)
 
 
 if __name__ == "__main__":
     main()
+    #todo what is actually computed is the difference of volume between years
+    # it is needed to normalize per m2
